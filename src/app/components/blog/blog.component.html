@@ -1,0 +1,28 @@
+<div *ngIf="blog">
+    <div class="blog-info">
+        <h1>{{blog.title}}</h1>
+        <p>Written by 
+            <a routerLink="/user/{{blog.ownerId}}">
+                {{blog.ownerName}}
+            </a>
+        </p>
+        <p>{{blog.description}}</p>
+        <button>Follow this blog</button>
+    </div>
+
+
+    <div>
+        Here is where sort and filter options will go
+    </div>
+
+
+    <div *ngFor="let entry of entries">
+        <div>
+            <a routerLink="/blog/{{blog.id}}/entry/{{entry.id}}">
+                <h2>{{entry.title}}</h2>
+            </a>
+            <p>{{entry.authorName}} {{entry.blogId}}</p>
+            <p>{{entry.body}}</p>
+        </div>
+    </div>
+</div>

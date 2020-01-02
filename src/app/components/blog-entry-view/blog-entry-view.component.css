@@ -1,0 +1,17 @@
+/* #header {
+    background-color: red;
+}
+
+#title {
+    background-color: green;
+}
+
+#body {
+    background-color: blue;
+} */
+.comment-view {
+    display: flex;
+}
+.username {
+    font-weight: bold;
+}

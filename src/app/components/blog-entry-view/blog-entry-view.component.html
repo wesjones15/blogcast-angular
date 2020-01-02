@@ -1,0 +1,14 @@
+<div id="header">
+    <h1 class="blog-title">{{blog.title}}</h1>
+    <div class="entry">
+        <h2 class="blog-entry-title">{{entry.title}}</h2>
+        <h3 class="blog-entry-author">{{entry.authorName}}</h3>
+        <div id="body">
+            <p class="blog-entry-body">{{entry.body}}</p>
+        </div>
+    </div>
+    <div class="comment-view" *ngFor="let comment of comments">
+        <p><span class="username">{{comment.authorName}}</span> — {{comment.body}}</p>
+        
+    </div>
+</div>
