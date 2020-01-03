@@ -38,16 +38,23 @@ export class BlogEntryService {
 
   getBlogEntriesByBlogId(blogId: number): Observable<BlogEntry[]> {
     const url = `http://localhost:8080/blog/${blogId}/entries`;
-    return this.http.get<BlogEntry[]>(url).pipe(
+    return this.http.get<BlogEntry[]>(url, this.httpOptions).pipe(
       tap(_ => this.log('fetched blog entries')),
       catchError(this.handleError<BlogEntry[]>('getBlogEntriesByBlogId', []))
     );
   }
 
   getBlogEntry(entryId: number): Observable<BlogEntry> {
-    return this.http.get<BlogEntry>(`${this.entryUrl}/${entryId}`).pipe(
+    return this.http.get<BlogEntry>(`${this.entryUrl}/${entryId}`, this.httpOptions).pipe(
       tap(_ => this.log(`fetched blog entry id=${entryId}`)),
       catchError(this.handleError<BlogEntry>(`getBlogEntry id=${entryId}`))
+    );
+  }
+
+  addBlogEntry(blogEntry: BlogEntry): Observable<BlogEntry> {
+    return this.http.post<BlogEntry>(this.entryUrl, blogEntry, this.httpOptions).pipe(
+      tap(_ => this.log('added new blog entry')),
+      catchError(this.handleError<BlogEntry>('addBlogEntry: failed to add blog entry'))
     );
   }
 }

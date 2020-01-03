@@ -1,10 +1,15 @@
 <div>
     <h1>BlogCast Home</h1>
     <div *ngFor="let blog of blogs">
-        <a routerLink="/blog/{{blog.id}}">
-            <div>{{blog.title}}</div>
-        </a>
-        <div>{{blog.ownerName}}</div> 
+        <div class="blog-container">
+            <div class="blog-name">
+                <a routerLink="/blog/{{blog.id}}">
+                    {{blog.title}}
+                </a>
+            </div>
+            <div class="blog-author">{{blog.ownerName}}</div>
+        </div>
+        
     </div>
     <h1><a routerLink="/create/blog">Create a blog</a></h1>
 </div>

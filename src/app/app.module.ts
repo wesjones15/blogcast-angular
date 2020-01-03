@@ -12,6 +12,7 @@ import { HomeComponent }            from './components/home/home.component';
 import { MessagesComponent }        from './components/messages/messages.component';
 import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { EntryFormComponent } from './components/entry-form/entry-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     HomeComponent,
     MessagesComponent,
     BlogFormComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    EntryFormComponent
   ],
   imports: [
     BrowserModule,

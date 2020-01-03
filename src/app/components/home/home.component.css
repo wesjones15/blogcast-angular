@@ -1,0 +1,22 @@
+.blog-container {
+    border: 2px solid orange;
+    justify-content: center;
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    margin: 0 20% 0 20%;
+    text-align: center;
+}
+
+.blog-name {
+    flex-direction: column;
+    font-weight: 800;
+}
+
+.blog-author {
+    /* margin-left: 10%; */
+}
+
+a {
+    text-decoration: none;
+}
