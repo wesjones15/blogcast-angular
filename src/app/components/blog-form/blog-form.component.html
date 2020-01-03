@@ -1,0 +1,7 @@
+<h1>Create New Blog</h1>
+<form>
+    
+    <p>Blog Title: <input #title /></p>
+    <p>Blog Description: <input #description /></p>
+    <button (click)="addBlog(title.value, description.value); title.value='';description.value=''">create</button>
+</form>

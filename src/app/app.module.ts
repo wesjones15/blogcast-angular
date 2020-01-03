@@ -10,6 +10,8 @@ import { CommentsViewComponent }    from './components/comments-view/comments-vi
 import { BlogcastHeaderComponent }  from './components/blogcast-header/blogcast-header.component';
 import { HomeComponent }            from './components/home/home.component';
 import { MessagesComponent }        from './components/messages/messages.component';
+import { BlogFormComponent } from './components/blog-form/blog-form.component';
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MessagesComponent }        from './components/messages/messages.compone
     CommentsViewComponent,
     BlogcastHeaderComponent,
     HomeComponent,
-    MessagesComponent
+    MessagesComponent,
+    BlogFormComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

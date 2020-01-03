@@ -9,9 +9,3 @@
 #body {
     background-color: blue;
 } */
-.comment-view {
-    display: flex;
-}
-.username {
-    font-weight: bold;
-}

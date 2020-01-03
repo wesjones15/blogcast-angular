@@ -36,16 +36,23 @@ export class CommentService {
   ) { }
 
   getCommentsByEntryId(entryId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.commentUrl}/entry/${entryId}`).pipe(
+    return this.http.get<Comment[]>(`${this.commentUrl}/entry/${entryId}`, this.httpOptions).pipe(
       tap(_ => this.log(`fetched comments for blog entry id=${entryId}`)),
       catchError(this.handleError<Comment[]>('getCommentsByEntryId', []))
     );
   }
 
   getComment(commentId: number): Observable<Comment> {
-    return this.http.get<Comment>(`${this.commentUrl}/${commentId}`).pipe(
+    return this.http.get<Comment>(`${this.commentUrl}/${commentId}`, this.httpOptions).pipe(
       tap(_ => this.log(`fetched comment id=${commentId}`)),
       catchError(this.handleError<Comment>(`getComment id=${commentId}`))
+    );
+  }
+
+  addComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.commentUrl, comment, this.httpOptions).pipe(
+      tap(_ => this.log('posted comment')),
+      catchError(this.handleError<Comment>('comment failed to post'))
     );
   }
 }

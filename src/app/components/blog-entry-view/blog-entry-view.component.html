@@ -7,8 +7,5 @@
             <p class="blog-entry-body">{{entry.body}}</p>
         </div>
     </div>
-    <div class="comment-view" *ngFor="let comment of comments">
-        <p><span class="username">{{comment.authorName}}</span> — {{comment.body}}</p>
-        
-    </div>
+    <app-comments-view></app-comments-view>
 </div>

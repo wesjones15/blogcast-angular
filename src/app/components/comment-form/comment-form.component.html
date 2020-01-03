@@ -1,0 +1,7 @@
+<div>
+    <h4>Leave a comment</h4>
+    <form>
+        <input #commentBody />
+        <button (click)="addComment(commentBody.value); commentBody.value=''">save</button>
+    </form>
+</div>
