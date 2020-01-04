@@ -16,14 +16,8 @@
         Here is where sort and filter options will go
     </div>
 
+    <app-entries-view></app-entries-view>
 
-    <div *ngFor="let entry of entries">
-        <div>
-            <a routerLink="/blog/{{blog.id}}/entry/{{entry.id}}">
-                <h2>{{entry.title}}</h2>
-            </a>
-            <p>{{entry.authorName}} {{entry.blogId}}</p>
-            <p>{{entry.body}}</p>
-        </div>
-    </div>
+    
+    
 </div>

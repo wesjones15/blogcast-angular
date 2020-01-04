@@ -3,7 +3,7 @@
     max-width: 1000px;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 2fr 3fr 1fr;
     grid-gap: 2em;
     color: #222;
     border-bottom: 1px solid #ddd;
