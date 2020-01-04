@@ -1,0 +1,19 @@
+.blog-info {
+    text-align: left;
+    padding: 0 5%;
+    margin: 10px;
+    background-color: #4e4e4e;
+}
+
+.blog-info h1 {
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.blog-desc {
+    margin: 10px 0;
+}
+
+.blog-author {
+    font-style: italic;
+}

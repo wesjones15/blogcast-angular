@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { Location } from '@angular/common';
+import { Location } from '@angular/common';
 
 import { Blog } from '../../models/blog';
 import { BlogService } from '../../services/blog-service/blog.service';
@@ -21,7 +21,7 @@ export class BlogFormComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    // private location: Location,
+    private location: Location,
     private blogService: BlogService
   ) { }
 
@@ -37,5 +37,9 @@ export class BlogFormComponent implements OnInit {
       ownerName: this.currentUser.username
     };
     this.blogService.addBlog(blogToAdd).subscribe();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

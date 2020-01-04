@@ -1,23 +1,20 @@
 <div *ngIf="blog">
     <div class="blog-info">
         <h1>{{blog.title}}</h1>
-        <p>Written by 
+        <div class="blog-author">Created by 
             <a routerLink="/user/{{blog.ownerId}}">
                 {{blog.ownerName}}
             </a>
-        </p>
-        <p>{{blog.description}}</p>
+            on {{blog.createdOn}}
+        </div>
+        <div class="blog-desc">{{blog.description}}</div>
         <button>Follow this blog</button>
         <button routerLink="/blog/{{blog.id}}/create">write new entry</button>
     </div>
-
 
     <div>
         Here is where sort and filter options will go
     </div>
 
     <app-entries-view></app-entries-view>
-
-    
-    
 </div>
