@@ -1,0 +1,6 @@
+<h1>Create New Blog Entry</h1>
+<form>
+    <p>Entry Title: <input #title /></p>
+    <p>Entry Body: <input #body /></p>
+    <button (click)="addBlogEntry(title.value, body.value); title.value='';body.value=''">Post</button>
+</form>

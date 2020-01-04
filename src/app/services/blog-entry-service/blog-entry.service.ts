@@ -57,4 +57,18 @@ export class BlogEntryService {
       catchError(this.handleError<BlogEntry>('addBlogEntry: failed to add blog entry'))
     );
   }
+
+  editBlogEntry(blogEntry: BlogEntry): Observable<BlogEntry> {
+    return this.http.put<BlogEntry>(`${this.entryUrl}/${blogEntry.id}`, blogEntry, this.httpOptions).pipe(
+      tap(_ => this.log(`updated blog entry with id=${blogEntry.id}`)),
+      catchError(this.handleError<BlogEntry>('editBlogEntry failed to update blog entry'))
+    );
+  }
+
+  deleteBlogEntry(entryId: number): Observable<BlogEntry> {
+    return this.http.delete<BlogEntry>(`${this.entryUrl}/${entryId}`, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted blog entry with id=${entryId}`)),
+      catchError(this.handleError<BlogEntry>('deleteBlogEntry failed to delete blog entry'))
+    );
+  }
 }

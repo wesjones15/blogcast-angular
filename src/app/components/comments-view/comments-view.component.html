@@ -1,9 +1,14 @@
-<div class="comment-container">
+<div class="wrapper">
     <h2>Comments</h2>
     <div class="comment-view" *ngFor="let comment of comments">
-        <p class="username">{{comment.authorName}}</p>
-        <p class="comment-body">— {{comment.body}}</p>
+        <label>{{comment.authorName}}</label>
+        <div class="comment-body">{{comment.body}}</div>
+        <div class="manage-comments">
+            <button>edit</button>
+            <button (click)="deleteComment(comment.id)">delete</button>
+        </div>
         <div class="timestamp">{{comment.createdOn}}</div>
+        
     </div>
     <app-comment-form></app-comment-form>
 </div>

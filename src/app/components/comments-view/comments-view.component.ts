@@ -10,24 +10,7 @@ import { CommentService } from '../../services/comment-service/comment.service';
   styleUrls: ['./comments-view.component.css']
 })
 export class CommentsViewComponent implements OnInit {
-  comments: Comment[] = [
-    {
-      body: 'hello',
-      authorName: 'wes',
-      blogEntryId: 1,
-      id: 1,
-      createdOn: null,
-      authorId: 1
-    },
-    {
-      body: 'hello world',
-      authorName: 'welsy',
-      blogEntryId: 1,
-      id: 1,
-      createdOn: null,
-      authorId: 1
-    }
-  ];
+  comments: Comment[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -41,5 +24,9 @@ export class CommentsViewComponent implements OnInit {
   getComments(): void {
     const entryId = +this.route.snapshot.paramMap.get('entryId');
     this.commentService.getCommentsByEntryId(entryId).subscribe(comments => this.comments = comments);
+  }
+
+  deleteComment(commentId: number): void {
+    this.commentService.deleteComment(commentId).subscribe();
   }
 }

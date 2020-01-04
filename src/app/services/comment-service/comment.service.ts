@@ -55,4 +55,18 @@ export class CommentService {
       catchError(this.handleError<Comment>('comment failed to post'))
     );
   }
+
+  editComment(comment: Comment): Observable<Comment> {
+    return this.http.put<Comment>(`${this.commentUrl}/${comment.id}`, comment, this.httpOptions).pipe(
+      tap(_ => this.log(`updated comment with id=${comment.id}`)),
+      catchError(this.handleError<Comment>('editBlogEntry failed to update blog entry'))
+    );
+  }
+
+  deleteComment(commentId: number): Observable<Comment> {
+    return this.http.delete<Comment>(`${this.commentUrl}/${commentId}`, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted comment with id=${commentId}`)),
+      catchError(this.handleError<Comment>('deleteComment failed to delete comment'))
+    );
+  }
 }
