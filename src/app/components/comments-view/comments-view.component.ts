@@ -11,6 +11,7 @@ import { CommentService } from '../../services/comment-service/comment.service';
 })
 export class CommentsViewComponent implements OnInit {
   comments: Comment[] = [];
+  editCommentId: number = -1;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,4 +30,16 @@ export class CommentsViewComponent implements OnInit {
   deleteComment(commentId: number): void {
     this.commentService.deleteComment(commentId).subscribe();
   }
+
+  editComment(comment: Comment, body: string): void {
+    comment.body = body;
+    this.commentService.editComment(comment).subscribe();
+  }
+
+  setEditCommentId(commentId: number): void {
+    this.editCommentId = commentId;
+  }
+
+
+
 }

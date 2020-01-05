@@ -39,3 +39,18 @@
 .comment-body {
     padding: 5px 0;
 }
+
+
+form {
+    width: 100%;
+}
+
+.comment-form {
+    padding: 0 5%;
+}
+
+.comment-input {
+    margin: 5px 0;
+    width: 100%;
+    padding: 1%;
+}
