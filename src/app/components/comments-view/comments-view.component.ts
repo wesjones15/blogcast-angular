@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { Comment } from '../../models/comment';
 import { CommentService } from '../../services/comment-service/comment.service';
 
@@ -15,6 +15,7 @@ export class CommentsViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private commentService: CommentService
   ) { }
 
@@ -28,7 +29,7 @@ export class CommentsViewComponent implements OnInit {
   }
 
   deleteComment(commentId: number): void {
-    this.commentService.deleteComment(commentId).subscribe();
+    this.commentService.deleteComment(commentId).subscribe(_ => this.getComments());
   }
 
   editComment(comment: Comment, body: string): void {
@@ -39,7 +40,4 @@ export class CommentsViewComponent implements OnInit {
   setEditCommentId(commentId: number): void {
     this.editCommentId = commentId;
   }
-
-
-
 }

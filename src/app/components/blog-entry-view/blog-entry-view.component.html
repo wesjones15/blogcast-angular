@@ -3,9 +3,13 @@
     <div class="entry">
         <h1 class="blog-entry-title">{{entry.title}}</h1>
         <div class="blog-entry-author">Written by {{entry.authorName}} on {{entry.createdOn}}</div>
+        <div>
+            <button>edit</button>
+            <button (click)="deleteBlogEntry(entry.id); goBack()">delete</button>
+        </div>
         <div id="body">
             <p class="blog-entry-body">{{entry.body}}</p>
         </div>
-    </div>
+    </div>    
     <app-comments-view></app-comments-view>
 </div>

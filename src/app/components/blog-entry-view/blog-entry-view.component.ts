@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { Blog } from '../../models/blog';
 import { BlogEntry } from '../../models/blogEntry';
 import { BlogService } from '../../services/blog-service/blog.service';
@@ -33,6 +33,7 @@ export class BlogEntryViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private blogService: BlogService,
     private entryService: BlogEntryService
   ) { }
@@ -50,5 +51,13 @@ export class BlogEntryViewComponent implements OnInit {
   getBlogEntry(): void {
     const entryId = +this.route.snapshot.paramMap.get('entryId');
     this.entryService.getBlogEntry(entryId).subscribe(entry => this.entry = entry);
+  }
+
+  deleteBlogEntry(entryId: number): void {
+    this.entryService.deleteBlogEntry(entryId).subscribe(entry => this.entry = entry);
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

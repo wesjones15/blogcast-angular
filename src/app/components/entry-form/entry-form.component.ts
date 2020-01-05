@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { BlogEntry } from '../../models/blogEntry';
 import { BlogEntryService } from '../../services/blog-entry-service/blog-entry.service';
 import { User } from '../../models/user';
@@ -18,6 +18,7 @@ export class EntryFormComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private entryService: BlogEntryService
   ) { }
 
@@ -35,6 +36,10 @@ export class EntryFormComponent implements OnInit {
       blogId: +this.route.snapshot.paramMap.get('blogId')
     };
     this.entryService.addBlogEntry(entry).subscribe();
+  }
+
+  goBack() {
+    this.location.go(`/blog/${+this.route.snapshot.paramMap.get('blogId')}`);
   }
 
 }

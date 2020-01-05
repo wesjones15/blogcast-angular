@@ -15,7 +15,7 @@
             </div>
             <div class="comment-form" *ngIf="comment.id == editCommentId">
                 <form>
-                    <textarea #editCommentBody class="comment-input"></textarea>
+                    <textarea #editCommentBody class="comment-input">{{comment.body}}</textarea>
                     <div>        
                         <button (click)="editComment(comment, editCommentBody.value); editCommentId=-1">save</button>
                     </div>
