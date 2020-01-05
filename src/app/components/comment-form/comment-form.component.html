@@ -1,7 +1,13 @@
-<div>
-    <h4>Leave a comment</h4>
-    <form>
-        <input #commentBody />
-        <button (click)="addComment(commentBody.value); commentBody.value=''">save</button>
-    </form>
+<div class="comment-form-container">
+    <div class="form-header">
+        <label>Leave a comment</label>
+    </div>
+    <div class="comment-form">
+        <form>
+            <input #commentBody class="comment-input" />
+            <div>        
+                <button (click)="addComment(commentBody.value); commentBody.value=''">save</button>
+            </div>
+        </form>
+    </div>
 </div>

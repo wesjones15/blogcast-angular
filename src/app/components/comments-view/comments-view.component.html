@@ -1,14 +1,35 @@
 <div class="wrapper">
     <h2>Comments</h2>
     <div class="comment-view" *ngFor="let comment of comments">
-        <label>{{comment.authorName}}</label>
-        <div class="comment-body">{{comment.body}}</div>
-        <div class="manage-comments">
-            <button>edit</button>
-            <button (click)="deleteComment(comment.id)">delete</button>
+        <div class="comment-header">
+            <label class="author">{{comment.authorName}}</label>
+            <label class="timestamp">{{comment.createdOn}}</label>
+            <div class="manage-comments">
+                <button>edit</button>
+                <button (click)="deleteComment(comment.id)">delete</button>
+            </div>
         </div>
-        <div class="timestamp">{{comment.createdOn}}</div>
+        <div class="comment-body-container">
+
+            <div class="comment-body">{{comment.body}}</div>
+        </div>
+        
         
     </div>
     <app-comment-form></app-comment-form>
 </div>
+
+<!-- <div class="comment-container-grid">
+    <div class="comment-about">
+        <label class="username"></label>
+        <label class="timestamp"></label>
+        <div class="buttons">
+            <button>edit</button>
+            <button>delete</button>
+        </div>
+     <label *ngIf="comment.authorId == currentUser.id"></label>
+    </div>
+    <div class="comment-content">
+        <div></div>
+    </div>
+</div> -->

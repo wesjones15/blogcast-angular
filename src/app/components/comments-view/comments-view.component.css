@@ -1,70 +1,41 @@
-.comment-view {
+.wrapper {
+    border: 2px solid #6e6e6e;
     background-color: #8f8f8f;
-    max-width: 1000px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 2fr 3fr 1fr;
-    grid-gap: 2em;
-    color: #222;
-    border-bottom: 1px solid #ddd;
-    padding: 1em 0;
+    padding: 0 5% 2% 5%;
 }
 
-.comment-view label {
+.comment-view {
+    background-color: #8f8f8f;
+    border: 1px solid #6e6e6e;
+    margin-bottom: 5px;
+}
+
+.comment-header {
+    background-color: #6e6e6e;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    padding-left: 5%;
+}
+
+.author {
     font-weight: 800;
 }
 
-.comment-view label:first-child {
-    text-align: right;
-}
-
-.comment-body {
-    text-align: left;
-}
-
 .timestamp {
-    text-align: right;
-    margin-left: 10px;
-    margin-top: -10px;
-}
-
-  
-  
-@media (max-width: 600px) {
-    .comment-view {
-        grid-template-columns: 1fr;
-        grid-gap: 0.5em;
-    }
-
-    .comment-view label:first-child {
-        text-align: left;
-        margin: 0;
-    }
-
-    .timestamp {
-        margin-left: 10px;
-        font-style: italic;
-        text-align: left;
-        order: 1;
-    }
-
-    .comment-body {
-        order: 2;
-    }
-}
-
-body {
-    font-family: "Open Sans", sans-serif;
-}
-
-h2 {
-    text-align: center;
-}
-
-.wrapper { 
-    padding: 0 1em;
+    font-style: italic;
 }
 
 .manage-comments {
-    float: left;
+    background-color: #8f8f8f;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.comment-body-container {
+    background-color: #afafaf;
+    padding: 0 5%;
+}
+
+.comment-body {
+    padding: 5px 0;
 }
