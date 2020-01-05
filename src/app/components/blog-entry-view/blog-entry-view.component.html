@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <h2 class="blog-title">{{blog.title}}</h2>
+    <label class="blog-title"><a routerLink="/blog/{{blog.id}}">{{blog.title}}</a></label>
     <div class="entry">
         <h1 class="blog-entry-title">{{entry.title}}</h1>
         <div class="blog-entry-author">Written by {{entry.authorName}} on {{entry.createdOn}}</div>

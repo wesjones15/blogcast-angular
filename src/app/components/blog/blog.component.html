@@ -1,11 +1,8 @@
-<div *ngIf="blog">
+<div class="wrapper" *ngIf="blog">
     <div class="blog-info">
         <h1>{{blog.title}}</h1>
-        <div class="blog-author">Created by 
-            <a routerLink="/user/{{blog.ownerId}}">
-                {{blog.ownerName}}
-            </a>
-            on {{blog.createdOn}}
+        <div class="blog-author">
+            Blog created by <a routerLink="/user/{{blog.ownerId}}">{{blog.ownerName}}</a> on {{blog.createdOn}}
         </div>
         <div class="blog-desc">{{blog.description}}</div>
         <button>Follow this blog</button>

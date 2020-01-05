@@ -4,7 +4,7 @@
     </div>
     <div class="comment-form">
         <form>
-            <input #commentBody class="comment-input" />
+            <textarea #commentBody class="comment-input" ></textarea>
             <div>        
                 <button (click)="addComment(commentBody.value); commentBody.value=''">save</button>
             </div>

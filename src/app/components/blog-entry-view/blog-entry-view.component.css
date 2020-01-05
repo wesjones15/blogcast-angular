@@ -5,7 +5,34 @@
     background-color: #4e4e4e;
 }
 
-.blog-entry-author {
+.blog-title {
+    font-weight: 800;
     font-style: italic;
+    font-size: 1.5em;
 }
 
+.blog-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.entry {
+    background-color: #8f8f8f;
+    margin-bottom: 10px;
+    padding: 2%;
+}
+
+.blog-entry-title {
+    margin-bottom: 0;
+    border-bottom: 2px solid #6e6e6e;
+}
+
+.blog-entry-author {
+    font-style: italic;
+    border-bottom: 2px solid #6e6e6e;
+    padding-left: 5%;
+}
+
+#body {
+    padding: 0 5% 0 5%;
+}
