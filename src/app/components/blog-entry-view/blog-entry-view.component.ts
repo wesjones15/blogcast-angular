@@ -12,6 +12,7 @@ import { BlogEntryService } from '../../services/blog-entry-service/blog-entry.s
   styleUrls: ['./blog-entry-view.component.css']
 })
 export class BlogEntryViewComponent implements OnInit {
+  toggleEdit: Boolean = false;
   // These objects are placeholders while Spring is down
   blog: Blog = {
     id: 1,
@@ -54,10 +55,20 @@ export class BlogEntryViewComponent implements OnInit {
   }
 
   deleteBlogEntry(entryId: number): void {
-    this.entryService.deleteBlogEntry(entryId).subscribe(entry => this.entry = entry);
+    this.entryService.deleteBlogEntry(entryId).subscribe();
+  }
+
+  editBlogEntry(entry: BlogEntry, title: string, body: string): void {
+    entry.title = title;
+    entry.body = body;
+    this.entryService.editBlogEntry(entry).subscribe(_ => this.flipToggleEdit());
   }
 
   goBack() {
-    this.location.back();
+    this.location.go(`/blog/${+this.route.snapshot.paramMap.get('blogId')}`);
+  }
+
+  flipToggleEdit() {
+    this.toggleEdit = !this.toggleEdit;
   }
 }

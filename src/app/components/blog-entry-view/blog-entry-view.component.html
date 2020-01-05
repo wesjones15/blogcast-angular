@@ -4,11 +4,18 @@
         <h1 class="blog-entry-title">{{entry.title}}</h1>
         <div class="blog-entry-author">Written by {{entry.authorName}} on {{entry.createdOn}}</div>
         <div>
-            <button>edit</button>
-            <button (click)="deleteBlogEntry(entry.id); goBack()">delete</button>
+            <button (click)="flipToggleEdit();">edit</button>
+            <button (click)="deleteBlogEntry(entry.id);" routerLink="/blog/{{blog.id}}">delete</button>
         </div>
-        <div id="body">
+        <div id="body" *ngIf="!toggleEdit">
             <p class="blog-entry-body">{{entry.body}}</p>
+        </div>
+        <div class="entry-form" *ngIf="toggleEdit">
+            <form>
+                <input #title class="entry-input" value="{{entry.title}}"/>
+                <textarea #body class="entry-input">{{entry.body}}</textarea>
+                <button (click)="editBlogEntry(entry, title.value, body.value);">Save changes</button>
+            </form>
         </div>
     </div>    
     <app-comments-view></app-comments-view>
