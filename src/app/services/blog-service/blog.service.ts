@@ -54,7 +54,7 @@ export class BlogService {
 
   addBlog(blog: Blog): Observable<Blog> {
     return this.http.post<Blog>(this.blogUrl, blog, this.httpOptions).pipe(
-      tap((newBlog: Blog) => this.log(`added blog w/ id=${newBlog.id}`)),
+      tap((newBlog: Blog) => this.log('created new blog')),
       catchError(this.handleError<Blog>('addBlog'))
     );
   }

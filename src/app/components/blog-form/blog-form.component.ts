@@ -38,8 +38,4 @@ export class BlogFormComponent implements OnInit {
     };
     this.blogService.addBlog(blogToAdd).subscribe();
   }
-
-  goBack(): void {
-    this.location.back();
-  }
 }
