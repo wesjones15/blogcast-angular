@@ -20,7 +20,7 @@ export class BlogEntryViewComponent implements OnInit {
     description: 'i blog about stuff',
     ownerId: 1,
     ownerName: 'wes',
-    createdOn: null
+    createdOn: new Date()
   };
   entry: BlogEntry = {
     id: 1,
@@ -29,8 +29,11 @@ export class BlogEntryViewComponent implements OnInit {
     authorName: 'wes',
     authorId: 1,
     blogId: 1,
-    createdOn: null
+    createdOn: new Date(Date.now())
   };
+
+  // timestamp: string = this.entry.createdOn.toLocaleString();
+
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +50,7 @@ export class BlogEntryViewComponent implements OnInit {
   getBlog(): void {
     const id = +this.route.snapshot.paramMap.get('blogId');
     this.blogService.getBlog(id).subscribe(blog => this.blog = blog);
+    console.log(this.blog.createdOn.toString());
   }
 
   getBlogEntry(): void {

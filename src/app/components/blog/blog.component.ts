@@ -11,7 +11,7 @@ import { BlogService } from '../../services/blog-service/blog.service';
 })
 export class BlogComponent implements OnInit {
   blog: Blog;
-
+  datetime: string;
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogService
@@ -23,6 +23,10 @@ export class BlogComponent implements OnInit {
 
   getBlog(): void {
     const id = +this.route.snapshot.paramMap.get('blogId');
-    this.blogService.getBlog(id).subscribe(blog => this.blog = blog);
+    this.blogService.getBlog(id).subscribe(blog => {
+      this.blog = blog;
+      this.datetime = blog.createdOn.toString();
+      console.log(this.datetime);
+    });
   }
 }
