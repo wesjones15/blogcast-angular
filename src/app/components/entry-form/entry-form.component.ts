@@ -23,6 +23,7 @@ export class EntryFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
   addBlogEntry(title: string, body: string, ) {
