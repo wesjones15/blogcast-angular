@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Blog } from '../../models/blog';
 import { BlogService } from '../../services/blog-service/blog.service';
 import { User } from 'src/app/models/user';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-blog-form',
@@ -22,7 +23,8 @@ export class BlogFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private $localStorage: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class BlogFormComponent implements OnInit {
       description,
       createdOn: new Date(),
       ownerId: this.currentUser.id,
-      ownerName: this.currentUser.username
+      ownerName: this.$localStorage.retrieve('username')
     };
     this.blogService.addBlog(blogToAdd).subscribe();
   }

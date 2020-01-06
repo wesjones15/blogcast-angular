@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Comment } from '../../models/comment';
 import { CommentService } from '../../services/comment-service/comment.service';
 import { User } from '../../models/user';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-comment-form',
@@ -20,7 +21,8 @@ export class CommentFormComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private $localStorage: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class CommentFormComponent implements OnInit {
       body,
       createdOn: new Date(),
       authorId: this.user.id,
-      authorName: this.user.username,
+      authorName: this.$localStorage.retrieve('username'),
       blogEntryId: +this.route.snapshot.paramMap.get('entryId')
     };
     this.commentService.addComment(comment).subscribe();  // refactor?

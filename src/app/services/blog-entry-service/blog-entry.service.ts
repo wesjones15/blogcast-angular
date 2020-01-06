@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { BlogEntry } from '../../models/blogEntry';
 import { MessageService } from '../message-service/message.service';
+import { UserService } from '../user-service/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,8 @@ export class BlogEntryService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private userService: UserService
   ) { }
 
   getBlogEntriesByBlogId(blogId: number): Observable<BlogEntry[]> {

@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { BlogEntry } from '../../models/blogEntry';
 import { BlogEntryService } from '../../services/blog-entry-service/blog-entry.service';
 import { User } from '../../models/user';
+import { LocalStorageService } from 'ngx-webstorage';
 @Component({
   selector: 'app-entry-form',
   templateUrl: './entry-form.component.html',
@@ -19,7 +20,8 @@ export class EntryFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private entryService: BlogEntryService
+    private entryService: BlogEntryService,
+    private $localStorage: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class EntryFormComponent implements OnInit {
     const entry: BlogEntry = {
       id: null,
       authorId: this.currentUser.id,
-      authorName: this.currentUser.username,
+      authorName: this.$localStorage.retrieve('username'),
       title,
       body,
       createdOn: new Date(),
