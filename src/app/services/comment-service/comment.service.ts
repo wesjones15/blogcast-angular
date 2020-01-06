@@ -21,7 +21,7 @@ export class CommentService {
   //     }
   //   )
   // };
-  httpOptions = this.authService.httpOptions;
+  // httpOptions = this.authService.httpOptions;
   private commentUrl = 'http://blog-team-1.herokuapp.com/comments'
   // private commentUrl = 'http://localhost:8080/comments';
   private log(message: string) {
@@ -41,35 +41,35 @@ export class CommentService {
   ) { }
 
   getCommentsByEntryId(entryId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.commentUrl}/entry/${entryId}`, this.httpOptions).pipe(
+    return this.http.get<Comment[]>(`${this.commentUrl}/entry/${entryId}`).pipe(
       tap(_ => this.log(`fetched comments for blog entry id=${entryId}`)),
       catchError(this.handleError<Comment[]>('getCommentsByEntryId', []))
     );
   }
 
   getComment(commentId: number): Observable<Comment> {
-    return this.http.get<Comment>(`${this.commentUrl}/${commentId}`, this.httpOptions).pipe(
+    return this.http.get<Comment>(`${this.commentUrl}/${commentId}`).pipe(
       tap(_ => this.log(`fetched comment id=${commentId}`)),
       catchError(this.handleError<Comment>(`getComment id=${commentId}`))
     );
   }
 
   addComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(this.commentUrl, comment, this.httpOptions).pipe(
+    return this.http.post<Comment>(this.commentUrl, comment).pipe(
       tap(_ => this.log('posted comment')),
       catchError(this.handleError<Comment>('comment failed to post'))
     );
   }
 
   editComment(comment: Comment): Observable<Comment> {
-    return this.http.put<Comment>(`${this.commentUrl}/${comment.id}`, comment, this.httpOptions).pipe(
+    return this.http.put<Comment>(`${this.commentUrl}/${comment.id}`, comment).pipe(
       tap(_ => this.log(`updated comment with id=${comment.id}`)),
       catchError(this.handleError<Comment>('editBlogEntry failed to update blog entry'))
     );
   }
 
   deleteComment(commentId: number): Observable<Comment> {
-    return this.http.delete<Comment>(`${this.commentUrl}/${commentId}`, this.httpOptions).pipe(
+    return this.http.delete<Comment>(`${this.commentUrl}/${commentId}`).pipe(
       tap(_ => this.log(`deleted comment with id=${commentId}`)),
       catchError(this.handleError<Comment>('deleteComment failed to delete comment'))
     );

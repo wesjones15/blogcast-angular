@@ -12,14 +12,14 @@ import { AuthService } from '../auth-service/auth.service';
   providedIn: 'root'
 })
 export class BlogService {
-  httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    )
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders(
+  //     {
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': '*'
+  //     }
+  //   )
+  // };
   private blogUrl = 'http://blog-team-1.herokuapp.com/blog'
   // private blogUrl = 'http://localhost:8080/blog';
   private log(message: string) {
@@ -55,14 +55,14 @@ export class BlogService {
   }
 
   addBlog(blog: Blog): Observable<Blog> {
-    return this.http.post<Blog>(this.blogUrl, blog, this.httpOptions).pipe(
+    return this.http.post<Blog>(this.blogUrl, blog).pipe(
       tap((newBlog: Blog) => this.log('created new blog')),
       catchError(this.handleError<Blog>('addBlog'))
     );
   }
 
   updateBlog(blog: Blog): Observable<any> {
-    return this.http.put(this.blogUrl, blog, this.httpOptions).pipe(
+    return this.http.put(this.blogUrl, blog).pipe(
       tap(_ => this.log(`updated blog id=${blog.id}`)),
       catchError(this.handleError<any>('updateBlog'))
     );
@@ -72,7 +72,7 @@ export class BlogService {
     const id = typeof blog === 'number' ? blog : blog.id;
     const url = `${this.blogUrl}/${id}`;
 
-    return this.http.delete<Blog>(url, this.httpOptions).pipe(
+    return this.http.delete<Blog>(url).pipe(
       tap(_ => this.log(`deleted blog id=${id}`)),
       catchError(this.handleError<Blog>('deleteBlog'))
     );

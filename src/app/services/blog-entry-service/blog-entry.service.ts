@@ -10,14 +10,14 @@ import { MessageService } from '../message-service/message.service';
   providedIn: 'root'
 })
 export class BlogEntryService {
-  httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    )
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders(
+  //     {
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': '*'
+  //     }
+  //   )
+  // };
   blogEntries: BlogEntry[] = [];
   private entryUrl = 'http://blog-team-1.herokuapp.com/blogEntry';
   // private entryUrl = 'http://localhost:8080/blogEntry';
@@ -40,35 +40,35 @@ export class BlogEntryService {
   getBlogEntriesByBlogId(blogId: number): Observable<BlogEntry[]> {
     // const url = `http://localhost:8080/blog/${blogId}/entries`;
 
-    return this.http.get<BlogEntry[]>(`${this.entryUrl}/blog/${blogId}`, this.httpOptions).pipe(
+    return this.http.get<BlogEntry[]>(`${this.entryUrl}/blog/${blogId}`).pipe(
       tap(_ => this.log('fetched blog entries')),
       catchError(this.handleError<BlogEntry[]>('getBlogEntriesByBlogId', []))
     );
   }
 
   getBlogEntry(entryId: number): Observable<BlogEntry> {
-    return this.http.get<BlogEntry>(`${this.entryUrl}/${entryId}`, this.httpOptions).pipe(
+    return this.http.get<BlogEntry>(`${this.entryUrl}/${entryId}`).pipe(
       tap(_ => this.log(`fetched blog entry id=${entryId}`)),
       catchError(this.handleError<BlogEntry>(`getBlogEntry id=${entryId}`))
     );
   }
 
   addBlogEntry(blogEntry: BlogEntry): Observable<BlogEntry> {
-    return this.http.post<BlogEntry>(this.entryUrl, blogEntry, this.httpOptions).pipe(
+    return this.http.post<BlogEntry>(this.entryUrl, blogEntry).pipe(
       tap(_ => this.log('added new blog entry')),
       catchError(this.handleError<BlogEntry>('addBlogEntry: failed to add blog entry'))
     );
   }
 
   editBlogEntry(blogEntry: BlogEntry): Observable<BlogEntry> {
-    return this.http.put<BlogEntry>(`${this.entryUrl}/${blogEntry.id}`, blogEntry, this.httpOptions).pipe(
+    return this.http.put<BlogEntry>(`${this.entryUrl}/${blogEntry.id}`, blogEntry).pipe(
       tap(_ => this.log(`updated blog entry with id=${blogEntry.id}`)),
       catchError(this.handleError<BlogEntry>('editBlogEntry failed to update blog entry'))
     );
   }
 
   deleteBlogEntry(entryId: number): Observable<BlogEntry> {
-    return this.http.delete<BlogEntry>(`${this.entryUrl}/${entryId}`, this.httpOptions).pipe(
+    return this.http.delete<BlogEntry>(`${this.entryUrl}/${entryId}`).pipe(
       tap(_ => this.log(`deleted blog entry with id=${entryId}`)),
       catchError(this.handleError<BlogEntry>('deleteBlogEntry failed to delete blog entry'))
     );
