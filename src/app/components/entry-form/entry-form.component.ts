@@ -12,6 +12,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 })
 export class EntryFormComponent implements OnInit {
   currentUser: User = {
+    // every post will have this user id until user id is tracked otherwise
     id: 1,
     username: 'wes',
     createdOn: null
