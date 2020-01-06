@@ -5,21 +5,25 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Comment } from '../../models/comment';
 import { MessageService } from '../message-service/message.service';
+import { AuthService } from '../auth-service/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentService {
-  httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    )
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders(
+  //     {
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': '*',
+  //       'Authorization': this..localStorageService.retrieve('authenticationToken')
 
-  private commentUrl = 'http://localhost:8080/comments';
+  //     }
+  //   )
+  // };
+  httpOptions = this.authService.httpOptions;
+  private commentUrl = 'http://blog-team-1.herokuapp.com/comments'
+  // private commentUrl = 'http://localhost:8080/comments';
   private log(message: string) {
     this.messageService.add(`CommentService: ${message}`);
   }
@@ -32,7 +36,8 @@ export class CommentService {
   }
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private authService: AuthService
   ) { }
 
   getCommentsByEntryId(entryId: number): Observable<Comment[]> {

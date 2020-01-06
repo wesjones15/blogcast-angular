@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Blog } from '../../models/blog';
 import { MessageService } from '../message-service/message.service';
+import { AuthService } from '../auth-service/auth.service';
 
 
 @Injectable({
@@ -19,8 +20,8 @@ export class BlogService {
       }
     )
   };
-
-  private blogUrl = 'http://localhost:8080/blog';
+  private blogUrl = 'http://blog-team-1.herokuapp.com/blog'
+  // private blogUrl = 'http://localhost:8080/blog';
   private log(message: string) {
     this.messageService.add(`BlogService: ${message}`);
   }
@@ -34,7 +35,8 @@ export class BlogService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private authService: AuthService
   ) { }
 
   getBlogs(): Observable<Blog[]> {

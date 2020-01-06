@@ -1,3 +1,24 @@
-<div id="image-holder">
+<!-- <div id="image-holder">
     <img src="../../../assets/blogcast.png" alt="BlogCast">
+</div> -->
+
+<div id="header">
+    <div class="container">
+      <!-- <div class="row"> -->
+        <div class="col-md-6">
+            <a href="#">
+                <img src="assets/blogcast.png" alt="logo" height="50px" width="150px">
+            </a>
+        </div> 
+        <!-- Title -->
+        <!-- <div class="col-md-3" *ngIf="authService.isAuthenticated()"> -->
+            <!-- <a href="/add-post" class="new-post">Add Post</a> -->
+        <!-- </div> -->
+        <div class="col-md-3">
+            <button class="logout btn btn-default" (click)="logout()">Logout</button>
+            <a routerLink="/login" class="login btn btn-default">Login</a>
+            <a routerLink="/register" class="register btn btn-default">Register</a>
+             <!-- Login and Register -->
+        </div>
+    </div>
 </div>

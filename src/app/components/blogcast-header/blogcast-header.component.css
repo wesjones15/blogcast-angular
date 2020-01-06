@@ -1,5 +1,34 @@
-#image-holder {
-    background-color: #6e6e6e;
-    border: 2px solid black;
-    /* display: flex; */
+
+#header {
+    background-color:slategray;
+    color: whitesmoke;
 }
+
+#fontColor{
+    text-decoration: lightcyan;
+    color:white;
+    font-weight: 400;
+
+}
+
+.login,.register{
+    float: right;
+    text-decoration: none;
+    color: aliceblue;
+    padding-top: 10px;
+  }
+  
+  .logout,.new-post{
+    float: right;
+    color: aliceblue;
+    padding-top: 10px;
+  }
+  
+  .logout:hover, .new-post:hover{
+    color: aliceblue;
+    text-decoration: none;
+  }
+
+  .logout {
+      color: black;
+  }

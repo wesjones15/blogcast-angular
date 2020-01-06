@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule }         from './app-routing.module';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { AppComponent }             from './app.component';
 import { BlogComponent }            from './components/blog/blog.component';
@@ -14,6 +15,11 @@ import { BlogFormComponent } from './components/blog-form/blog-form.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { EntryFormComponent } from './components/entry-form/entry-form.component';
 import { EntriesViewComponent } from './components/entries-view/entries-view.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterSuccessComponent } from './components/register-success/register-success.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptorService } from './services/token-interceptor-service/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,14 +33,26 @@ import { EntriesViewComponent } from './components/entries-view/entries-view.com
     BlogFormComponent,
     CommentFormComponent,
     EntryFormComponent,
-    EntriesViewComponent
+    EntriesViewComponent,
+    LoginComponent,
+    RegisterComponent,
+    RegisterSuccessComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxWebstorageModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
