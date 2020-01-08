@@ -1,10 +1,10 @@
 
-#header {
+ #header {
     background-color:slategray;
     color: whitesmoke;
-}
+} 
 
-#fontColor{
+/*#fontColor{
     text-decoration: lightcyan;
     color:white;
     font-weight: 400;
@@ -31,4 +31,4 @@
 
   .logout {
       color: black;
-  }
+  } */

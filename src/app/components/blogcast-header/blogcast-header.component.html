@@ -1,24 +1,47 @@
-<!-- <div id="image-holder">
-    <img src="../../../assets/blogcast.png" alt="BlogCast">
-</div> -->
+<!-- <nav class="navbar navbar-default">
+<div id="header"> -->
+    <!-- <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <a href="#"><img src="assets/blogcast.png" alt="logo" height="50px" width="150px"></a>
+                <a routerLink="/login" class="login btn btn-default">Home</a>
+                <a routerLink="/login" class="login btn btn-default">Featured Blogs</a>
+                <a routerLink="/login" class="login btn btn-default">Create Blogs</a>
+                <a routerLink="/login" class="login btn btn-default">Messages</a>
+                <button class="logout btn btn-default" (click)="logout()">Logout</button> -->
 
+        
+            <!-- <a href="/add-post" class="new-post">Add Post</a> -->
+            <!-- <button class="logout btn btn-default" (click)="logout()">Logout</button> -->
+        <!-- </div>
+        <div class="col-md-2" *ngIf="!authService.isAuthenticated()"> -->
+            <!-- <button class="logout btn btn-default" (click)="logout()">Logout</button> -->
+            <!-- <a routerLink="/login" class="login btn btn-default">Login</a> -->
+            <!-- <a routerLink="/register" class="register btn btn-default">Register</a> -->
+             <!-- Login and Register -->
+        <!-- </div>
+    </div>
+</div> -->
+<!-- </div>
+</nav> -->
+
+<nav class="navbar navbar-default">
 <div id="header">
     <div class="container">
-      <!-- <div class="row"> -->
-        <div class="col-md-6">
-            <a href="#">
-                <img src="assets/blogcast.png" alt="logo" height="50px" width="150px">
-            </a>
-        </div> 
-        <!-- Title -->
-        <!-- <div class="col-md-3" *ngIf="authService.isAuthenticated()"> -->
-            <!-- <a href="/add-post" class="new-post">Add Post</a> -->
-        <!-- </div> -->
-        <div class="col-md-3">
-            <button class="logout btn btn-default" (click)="logout()">Logout</button>
-            <a routerLink="/login" class="login btn btn-default">Login</a>
-            <a routerLink="/register" class="register btn btn-default">Register</a>
-             <!-- Login and Register -->
+        <div class="row">
+            <div class="col-md-12">
+                <a href="home"><img src="assets/blogcast.png" alt="logo" height="50px" width="150px"></a>
+                <a routerLink="/home" class="login btn btn-default">Home</a>
+                <a routerLink="/login" class="login btn btn-default">Featured Blogs</a>
+                <a routerLink="/blog" class="login btn btn-default">Create Blogs</a>
+                <a routerLink="/messages" class="login btn btn-default">Messages</a>
+                <a routerLink="/login" class="login btn btn-default">Login</a>
+                <a routerLink="/register" class="register btn btn-default">Register</a>
+            </div>
         </div>
     </div>
 </div>
+</nav>
+
+
+

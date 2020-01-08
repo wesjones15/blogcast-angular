@@ -1,5 +1,5 @@
-.blog-container {
-    background-color: #8f8f8f;
+/* .blog-container {
+    background-color:white;
     max-width: 1000px;
     margin: auto;
     display: grid;
@@ -16,7 +16,7 @@
 
 .blog-container label:first-child {
     text-align: right;
-}
+} */
 
 /* .blog-container {
     border: 2px solid orange;
@@ -28,9 +28,9 @@
     text-align: center;
 } */
 
-.blog-name {
+/* .blog-name {
     /* flex-direction: column; */
-    font-weight: 800;
+    /* font-weight: 800;
     text-align: right;
 }
 
@@ -44,4 +44,4 @@
 
 a {
     text-decoration: none;
-}
+} */ 

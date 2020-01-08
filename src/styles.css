@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color: #6e6e6e;
-}
+/* body {
+    background-color: whitesmoke;
+    color: rgb(65, 47, 221);
+} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+  }

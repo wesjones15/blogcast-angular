@@ -47,8 +47,7 @@ export class BlogService {
   }
 
   getBlog(id: number): Observable<Blog> {
-    const url = `${this.blogUrl}/${id}`;
-    return this.http.get<Blog>(url).pipe(
+    return this.http.get<Blog>(`${this.blogUrl}/${id}`).pipe(
       tap(_ => this.log(`fetched blog id=${id}`)),
       catchError(this.handleError<Blog>(`getBlog id=${id}`))
     );

@@ -16,7 +16,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const token = this.$localStorage.retrieve('authenticationToken');
+    const token = this.$localStorage.retrieve('authenticationtoken');
     console.log('jwt token', token);
     if (token) {
       let cloned = request.clone({
@@ -26,15 +26,36 @@ export class TokenInterceptorService implements HttpInterceptor {
           'Authorization': `${token}`
         })
       });
+      if (request.method == "GET") {
+        console.log("IS A GET REQUEST WITH JWT TOKEN");
+        cloned = request.clone({
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': '*',
+            'Authorization': `${token}`
+          })
+        });
+      }
       return next.handle(cloned);
-    } 
+    }
     else {
-      request = request.clone({
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        })
-      });
+      if (request.method == "GET") {
+        console.log("IS A GET REQUEST ");
+        request = request.clone({
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${token}`
+          })
+        });
+      }
+      else {
+        request = request.clone({
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          })
+        });
+      }
       return next.handle(request);
     }
   }
