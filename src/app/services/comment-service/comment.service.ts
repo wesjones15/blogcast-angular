@@ -19,7 +19,7 @@ export class CommentService {
     )
   };
 
-  private commentUrl = 'http://localhost:8080/comments';
+  private commentUrl = 'https://sample-blogcast.cfapps.io/comments';
   private log(message: string) {
     this.messageService.add(`CommentService: ${message}`);
   }

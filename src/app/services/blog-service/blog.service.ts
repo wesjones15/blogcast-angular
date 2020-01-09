@@ -20,7 +20,7 @@ export class BlogService {
     )
   };
 
-  private blogUrl = 'http://localhost:8080/blog';
+  private blogUrl = 'https://sample-blogcast.cfapps.io/blog';
   private log(message: string) {
     this.messageService.add(`BlogService: ${message}`);
   }

@@ -19,7 +19,7 @@ export class BlogEntryService {
     )
   };
   blogEntries: BlogEntry[] = [];
-  private entryUrl = 'http://localhost:8080/blogEntry';
+  private entryUrl = 'https://sample-blogcast.cfapps.io/blogEntry';
   private log(message: string) {
     this.messageService.add(`BlogService: ${message}`);
   }
