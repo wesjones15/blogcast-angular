@@ -29,7 +29,7 @@ export class UserService {
   //   }
   // ];
 
-  private userUrl = 'http://localhost:8080/user';
+  private userUrl = 'https://sample-blogcast.cfapps.io/user';
   private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
   }
