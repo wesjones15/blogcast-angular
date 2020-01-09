@@ -20,7 +20,7 @@ export class BlogService {
     )
   };
 
-  private blogUrl = 'https://sample-blogcast.cfapps.io/blog';
+  private blogUrl = 'https://blog-team-1.herokuapp.com/blog';
   private log(message: string) {
     this.messageService.add(`BlogService: ${message}`);
   }

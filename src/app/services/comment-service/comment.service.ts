@@ -19,7 +19,7 @@ export class CommentService {
     )
   };
 
-  private commentUrl = 'https://sample-blogcast.cfapps.io/comments';
+  private commentUrl = 'https://blog-team-1.herokuapp.com/comments';
   private log(message: string) {
     this.messageService.add(`CommentService: ${message}`);
   }

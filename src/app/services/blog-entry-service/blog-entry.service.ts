@@ -19,7 +19,7 @@ export class BlogEntryService {
     )
   };
   blogEntries: BlogEntry[] = [];
-  private entryUrl = 'https://sample-blogcast.cfapps.io/blogEntry';
+  private entryUrl = 'https://blog-team-1.herokuapp.com/blogEntry';
   private log(message: string) {
     this.messageService.add(`BlogService: ${message}`);
   }
@@ -37,8 +37,7 @@ export class BlogEntryService {
   ) { }
 
   getBlogEntriesByBlogId(blogId: number): Observable<BlogEntry[]> {
-    const url = `http://localhost:8080/blog/${blogId}/entries`;
-    return this.http.get<BlogEntry[]>(url, this.httpOptions).pipe(
+    return this.http.get<BlogEntry[]>(`${this.entryUrl}/blog/${blogId}`, this.httpOptions).pipe(
       tap(_ => this.log('fetched blog entries')),
       catchError(this.handleError<BlogEntry[]>('getBlogEntriesByBlogId', []))
     );
