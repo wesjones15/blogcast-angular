@@ -29,7 +29,7 @@ export class UserService {
   //   }
   // ];
 
-  private userUrl = 'https://sample-blogcast.cfapps.io/user';
+  private userUrl = 'https://blog-team-1.herokuapp.com/user';
   private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
   }
